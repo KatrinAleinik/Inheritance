@@ -1,7 +1,5 @@
 import org.testng.annotations.Test;
 
-import java.util.Arrays;
-
 public class Test1 {
     @Test
     public void testMethod1(){
@@ -42,32 +40,35 @@ public class Test1 {
 
     @Test
     public void testAlienMartian(){
-        Martian John = new Martian("John");
-        John.setArms(2);
-        John.setEyes(2);
-        John.setLegs(2);
-        John.speaks();
-        John.chases(23);
-        John.see();
-        John.scares();
+        Martian john = new Martian();
+        john.setArms(2);
+        john.setEyes(2);
+        john.setLegs(2);
+        john.speaks();
+        john.chases(23);
+        john.see();
+        john.scares();
     }
     @Test
     public void testAlienMartianFobos(){
-        Martian John = new Martian("John");
-        John.setArms(3);
-        John.setEyes(0);
-        John.setLegs(2);
-        John.speaks();
-        John.chases(19);
-        John.see();
-        John.scares();
-        MartianFobos Greg = new MartianFobos("Greg");
-        Greg.setLegs(5);
-        Greg.see();
-        Greg.chases(25);
-        Greg.speaks();
-        Greg.setHeads(2);
-        Greg.setArms(5);
+        Martian john = new Martian();
+        john.setArms(3);
+        john.setEyes(0);
+        john.setLegs(2);
+        john.speaks();
+        john.chases(19);
+        john.see();
+        john.scares();
+        MartianFobos greg = new MartianFobos("Greg");
+        greg.setLegs(5);
+        greg.see();
+        greg.chases(25);
+        greg.speaks();
+        greg.setHeads(2);
+        greg.setArms(5);
+        greg.setEyes(3);
+        greg.setLegs(5);
+
 
     }
 }

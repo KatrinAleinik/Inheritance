@@ -3,6 +3,7 @@ public class Martian implements Alien  {
     private int legs;
     private int arms;
     private String name;
+
     public Martian(){
 
     }
@@ -10,6 +11,7 @@ public class Martian implements Alien  {
     public String getName(){
         return name;
     }
+
     public void setName(String name){
         this.name = name;
     }
@@ -25,6 +27,7 @@ public class Martian implements Alien  {
     public int getEyes(){
         return eyes;
     }
+
     public void setLegs(int legs){
         this.legs = legs;
     }
@@ -36,6 +39,7 @@ public class Martian implements Alien  {
     public void setArms(int arms){
         this.arms = arms;
     }
+
     public int getArms(){
         return arms;
     }
@@ -46,16 +50,19 @@ public class Martian implements Alien  {
         }
         else System.out.println("Ты издеваешься?");
     }
+
     public void speaks (){
         System.out.println("Мы пришли с миром!");
 
     }
+
     public void chases (int speed){
         if (speed >=20){
             System.out.println("Я тебя догоню и съем!");
         }
         else System.out.println("Стой! Давай поговорим!");
     }
+
     public void scares(){
         System.out.println("Pppppppppppppppp");
     }

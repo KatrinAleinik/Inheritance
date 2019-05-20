@@ -62,7 +62,7 @@ public class Test1 {
         MartianFobos greg = new MartianFobos("Greg");
         greg.setLegs(5);
         greg.see();
-        greg.chases(25);
+        greg.chases(30);
         greg.speaks();
         greg.setHeads(2);
         greg.setArms(5);

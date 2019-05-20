@@ -20,23 +20,24 @@ public class Martian implements Alien  {
         this.name = name;
 
     }
-    public void setEyes(int eyes){
-        this.eyes = eyes;
+
+    public int getEyes() {
+        return eyes;
     }
 
-    public int getEyes(){
-        return eyes;
+    public void setEyes(int eyes) {
+        this.eyes = eyes;
     }
 
     public void setLegs(int legs){
         this.legs = legs;
     }
 
-    public int getLegs(){
+    public int getLegs() {
         return legs;
     }
 
-    public void setArms(int arms){
+    public void setArms(int arms) {
         this.arms = arms;
     }
 
@@ -44,11 +45,10 @@ public class Martian implements Alien  {
         return arms;
     }
 
-    public void see(){
+    public void see() {
         if (this.eyes>0){
             System.out.println("Я все вижу");
-        }
-        else System.out.println("Ты издеваешься?");
+        } else System.out.println("Ты издеваешься?");
     }
 
     public void speaks (){

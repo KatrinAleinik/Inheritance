@@ -9,27 +9,36 @@ import org.testng.annotations.Test;
 
 public class GoogleSearchKate {
     static WebDriver driver;
+    static String key = "Sales usa Cars";
 
     @Test
     public static void test001() {
         System.setProperty("webdriver.gecko.driver", "/Users/greatkate/IdeaProjects/TestNG/src/test/recources/driver/geckodriver");
         driver = new FirefoxDriver();
+
+
         openMainPage();
-        typeQuery();
+        typeQuery(key);
         submitSearch();
+        wailForResults();
         assertResultPage();
 
 
     }
 
-    public static void assertResultPage() {
+    public static void wailForResults() {
+        By resultStatesElement = By.id("resultStats");
         WebDriverWait wait = new WebDriverWait(driver, 10);
-        WebElement element = wait.until(ExpectedConditions.elementToBeClickable(By.id("resultStats")));
+        wait.until(ExpectedConditions.visibilityOfElementLocated(resultStatesElement));
+    }
+
+
+    public static void assertResultPage() {
         WebElement assertion = driver.findElement(By.id("resultStats"));
         boolean isElementsDisplayed = assertion.isDisplayed();
         boolean expected = true;
         Assert.assertEquals(isElementsDisplayed, expected);
-        driver.close();
+        //driver.close();
     }
 
     public static void submitSearch() {
@@ -37,9 +46,9 @@ public class GoogleSearchKate {
         searchInput.submit();
     }
 
-    public static void typeQuery() {
+    public static void typeQuery(String key) {
         WebElement searchInput = driver.findElement(By.cssSelector(".gLFyf"));
-        searchInput.sendKeys("portnov computer school");
+        searchInput.sendKeys(key);
 
     }
 

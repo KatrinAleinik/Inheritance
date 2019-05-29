@@ -100,11 +100,13 @@ public class WindowHandlestest {
     public void afterMethod() {
         driver.manage().deleteAllCookies();
 
+
     }
 
     @AfterSuite
 
     public void afterSuite() {
-        driver.close();
+
+        driver.quit();
     }
 }

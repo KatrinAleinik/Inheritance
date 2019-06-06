@@ -5,14 +5,15 @@ import org.openqa.selenium.firefox.FirefoxDriver;
 import org.openqa.selenium.support.ui.ExpectedConditions;
 import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
+import org.testng.annotations.DataProvider;
 import org.testng.annotations.Test;
 
 public class GoogleSearchKate {
     static WebDriver driver;
-    static String key = "Sales usa Cars";
+    //static String key = "Sales usa Cars";
 
-    @Test
-    public static void test001() {
+    @Test(dataProvider = "test1")
+    public static void test001(String key) {
         System.setProperty("webdriver.gecko.driver", "/Users/greatkate/IdeaProjects/TestNG/src/test/recources/driver/geckodriver");
         driver = new FirefoxDriver();
 
@@ -24,6 +25,15 @@ public class GoogleSearchKate {
         assertResultPage();
 
 
+
+    }
+
+    public static void assertResultPage() {
+        WebElement assertion = driver.findElement(By.id("resultStats"));
+        boolean isElementsDisplayed = assertion.isDisplayed();
+        boolean expected = true;
+        Assert.assertEquals(isElementsDisplayed, expected);
+        driver.close();
     }
 
     public static void wailForResults() {
@@ -32,13 +42,15 @@ public class GoogleSearchKate {
         wait.until(ExpectedConditions.visibilityOfElementLocated(resultStatesElement));
     }
 
+    @DataProvider(name = "test1")
+    public Object[][] createData() {
 
-    public static void assertResultPage() {
-        WebElement assertion = driver.findElement(By.id("resultStats"));
-        boolean isElementsDisplayed = assertion.isDisplayed();
-        boolean expected = true;
-        Assert.assertEquals(isElementsDisplayed, expected);
-        //driver.close();
+        return new Object[][]{
+                {"Portnov computer school"},
+                {"Sey hi new employee"},
+                {"1234567890"}
+        };
+
     }
 
     public static void submitSearch() {
